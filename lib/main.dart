@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management/Counter_controller/Counter%20ui.dart';
 import 'package:state_management/Counter_provider.dart';
 
 import 'Counter_ui.dart';
+import 'Note_app/Note_app_ui.dart';
 import 'Todo/Splashscreen.dart';
 import 'Todo/Todo_provider.dart';
 
@@ -12,10 +15,13 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => Todoprovider()),
       ],
-      child: MyApp(),
-    ),
+      child:
+       MyApp(),
+    )
+
   );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,7 +29,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -44,7 +50,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Splashscreen(),
+      home: NoteAppUi(),
     );
   }
 }
