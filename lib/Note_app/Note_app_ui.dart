@@ -82,7 +82,6 @@ class NoteAppUi extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final note = noteController.notes[index];
                   final title = note["title"]; "";
-
                   return Todotilee(
                     title: title,
                   );

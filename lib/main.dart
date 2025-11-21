@@ -3,9 +3,13 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management/Counter_controller/Counter%20ui.dart';
 import 'package:state_management/Counter_provider.dart';
+import 'package:state_management/Todo_sharedpreference/Controller_todo.dart';
+import 'package:state_management/Todo_sharedpreference/Todo_share_ui.dart';
 
 import 'Counter_ui.dart';
 import 'Note_app/Note_app_ui.dart';
+import 'Shared_preferences/Shared_counter_ui.dart';
+import 'Shared_preferences/Shared_preference_function.dart';
 import 'Todo/Splashscreen.dart';
 import 'Todo/Todo_provider.dart';
 
@@ -14,6 +18,8 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => Todoprovider()),
+        ChangeNotifierProvider(create: (context) => Countershare()..loadData()),
+        ChangeNotifierProvider(create: (context) => Todocontroller()..loadData()),
       ],
       child:
        MyApp(),
@@ -50,7 +56,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: NoteAppUi(),
+      home: TodoShareUi(),
     );
   }
 }
